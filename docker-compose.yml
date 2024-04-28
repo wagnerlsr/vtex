@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  mongodb_carrefour:
+    container_name: mongodb_carrefour
+    image: mongo:4.4.13
+    ports:
+      - "27017:27017"
+    volumes:
+      - /home/wagner/work/Carrefour/vtex/mongodb/data:/data/db:rw
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: carrefour
+      MONGO_INITDB_ROOT_PASSWORD: carrefour
+      MONGO_INITDB_DATABASE: carrefour
+
+  jms_carrefour:
+    container_name: jms_carrefour
+    image: rmohr/activemq:5.14.3
+    ports:
+      - "61616:61616"
+      - "8161:8161"

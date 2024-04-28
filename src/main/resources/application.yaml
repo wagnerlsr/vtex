@@ -1,0 +1,51 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /carrefour/v1
+
+
+spring:
+  main:
+    banner-mode: off
+
+  application:
+    name: vtex
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+  mvc: # Problema com Swagger 2
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  data:
+    mongodb:
+      authentication-database: admin
+      username: carrefour
+      password: carrefour
+      database: carrefour
+      port: 27017
+      host: 192.168.15.105
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+
+
+project:
+  version: @version@
+
+#mp:
+#  messaging:
+#    incoming:
+#      pedidos:
+#        connector: smallrye-kafka
+#        value:
+#          deserializer: com.github.viniciusfcf.ifood.pedido.PedidoDeserializer
+#        group:
+#          id: ifood-pedidos
+#
+#amqp-username: admin
+#amqp-password: admin
